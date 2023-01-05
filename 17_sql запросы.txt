@@ -1,0 +1,80 @@
+1)
+Select * From workers
+where name = 'Иван' or name =  'брауболиус'
+order by name
+
+2)
+Select * From workers
+where login in ('braun79@mail.ru','dubif02@mail.ru','bibib74@mail.ru')
+order by name
+
+3)
+Select * From workers
+where (name = 'браунулиус' or name = 'ангубуес' or name = 'ефринулиус' or login = 'braun79@mail.ru' or name = 'dubif02@mail.ru' or name = 'bibib74@mail.ru') and salary > 300
+order by name
+
+++++++++++++++++++++++++++++++++++++++++
+4)
+Select salary, * from workers
+where salary between 100 and 1000
+order by salary
+
+5)
+Select distinct salary from workers
+order by salary
+
+6)
+Select distinct age from workers
+order by age
+
+7)
+Select 	min(salary) From workers
+
+8)
+Select 	max(salary) From workers
+
+9)
+Select 	sum(salary) From workers
+
+10)
+Select 	sum(salary) From workers
+where age between 21 and 25
+
+11)
+Select 	avg(salary) From workers
+
+12)
+Select 	avg(age) From workers
+
+13-21)
+??? - без понятия как работать с датами
+
+22)
+SELECT age, min(salary) as MinSalary FROM workers
+GROUP BY age
+order by age
+
+23)
+SELECT salary, max(age) as MaxAge FROM workers
+GROUP BY salary
+order by salary
+
+24)
+select * from workers
+where salary >(select avg(salary) from workers)
+order by name
+
+25)
+select * from workers
+where age < (select avg(age) from workers)/2*3
+order by name
+
+26)
+select * from workers
+where salary = (select min(salary) from workers where salary IS NOT NULL)
+order by name
+
+27)
+select * from workers
+where salary = (select max(salary) from workers where salary IS NOT NULL)
+order by name
